@@ -1,0 +1,36 @@
+paths:
+  "index_by_client_id":
+    get:
+      tags:
+        - "PresenceLog"
+      description: "Return the presence logs of a Client corresponding to the given id."
+      summary: "Return the presence logs of a Client corresponding to the given id."
+      operationId: "presenceLogsByClientInPeriod"
+      parameters:
+        - name: "client_id"
+          in: "path"
+          description: "id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "valid_from"
+          in: "query"
+          schema:
+            type: "string"
+            format: "date"
+        - name: "valid_to"
+          in: "query"
+          schema:
+            type: "string"
+            format: "date"
+      responses:
+        "200":
+          description: "No response was specified"
+          content:
+            application/json:
+              schema:
+                $ref: "../schemas/presence_logs.yml#/components/schemas/PresenceLogList"
+            application/xml:
+              schema:
+                $ref: "../schemas/presence_logs.yml#/components/schemas/PresenceLogList"

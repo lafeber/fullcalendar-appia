@@ -1,0 +1,49 @@
+components:
+  schemas:
+    ClientInvitation:
+      title: ClientInvitation
+      type: object
+      example:
+        accepted: true
+        careOrderId: 2
+        clientId: 1
+        employeeId: 2
+        hourTypeId: 52
+        locationId: 4
+        surchargeIds:
+          - 9
+          - 10
+        teamId: 3
+      properties:
+        hourTypeId:
+          type: integer
+          format: int64
+          nullable: true
+        careOrderId:
+          type: integer
+          format: int64
+          nullable: true
+        surchargeIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        accepted:
+          type: boolean
+          nullable: true
+        clientId:
+          type: integer
+          format: int64
+          nullable: true
+        employeeId:
+          type: integer
+          format: int64
+          nullable: true
+        teamId:
+          type: integer
+          format: int64
+          nullable: true
+        locationId:
+          type: integer
+          format: int64
+          nullable: true

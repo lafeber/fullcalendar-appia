@@ -1,0 +1,389 @@
+components:
+  schemas:
+    PresenceLogList:
+      type: "object"
+      properties:
+        presenceLogs:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PresenceLog"
+          xml:
+            name: "presenceLog"
+      description: "PresenceLogList model (no description)"
+      example:
+        presenceLogs:
+          - id: 1234
+            activityObjectId: 999
+            duration: 100
+            reason: "Moves import"
+            action: "create"
+            externalId: "1"
+            sourceType: "6"
+            clientObjectId: 12344
+            employeeObjectId: 557
+            careOrderObjectId: 123
+            startDate: "2012-08-02T11:48:46.000+02:00"
+            endDate: "2012-08-02T11:48:46.000+02:00"
+            clusterObjectId: 1
+      xml:
+        name: "presenceLogs"
+    PresenceLog:
+      title: "PresenceLog"
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+          nullable: true
+          x-cupido-id: true
+        activityObjectId:
+          type: "integer"
+          description: "The id of the {@link HourType} that is assigned to this {@code PresenceLog}. The value of this field is a bit complicated, and depends on the contents of the {@code products} field. The following rules are used, from top to bottom:\n\nIf there is exactly one PresenceLogProduct with a duration, the hour type id of that PresenceLogProduct is used If there are multiple PresenceLogProducts with a duration, 12 is used, which means 'client time' If there are no PresenceLogProducts with a duration, but exactly one with a quantity, the hour type id of that PresenceLogProduct is used If there are no PresenceLogProducts with a duration, and multiple with a quantity, or no products, no value is set"
+          format: "int64"
+        duration:
+          type: "integer"
+          description: "The duration of this PresenceLog. This value is only set for PresenceLogs for which the start- and endtime don't matter; so called 'duration presence logs'. These are usually created from for example the week sheet. This value is only set if hasRealTime is false."
+          format: "int64"
+        reason:
+          type: "string"
+          description: "The user-provided reason this PresenceLog was created or modified, if available."
+          nullable: true
+        action:
+          $ref: "#/components/schemas/PresenceLogAction"
+        externalId:
+          type: "string"
+          description: "The id of the PresenceLog in the source application of the PresenceLog."
+          nullable: true
+        sourceType:
+          type: "string"
+          description: "2: MobilePhone\n3: Manual\n4: Timesheet\n5: APriori\n6: Planning\n7: EmployeePortal\n8: Groupcare\n9: Schedule\n10: Import\n11: ImportWithOverlap\n12: Agenda\n13: NewGroupCare\n14: YsisConnector\n15: OnsDBC\n16: OnsVandaag\n17: OnsDossier"
+          nullable: true
+        clientObjectId:
+          type: "integer"
+          description: "The id of the Client related to this PresenceLog."
+          format: "int64"
+          nullable: true
+        employeeObjectId:
+          type: "integer"
+          description: "The id of the Employee related to this PresenceLog."
+          format: "int64"
+          nullable: true
+        careOrderObjectId:
+          type: "integer"
+          description: "The id of the CareOrder related to this PresenceLog. Only set for treatment-related PresenceLogs, such as those relating to Primary Care."
+          format: "int64"
+        date:
+          type: "string"
+          description: "Date of registration.\nOnly use this for indirect presencelogs, which are not bound to a client.\nWhen date is not set, a fallback to startDate will be used."
+          format: "date-time"
+        startDate:
+          type: "string"
+          format: "date-time"
+          nullable: true
+        endDate:
+          type: "string"
+          format: "date-time"
+          nullable: true
+        clusterObjectId:
+          type: "integer"
+          description: "The id of the Team used for cost center computation."
+          format: "int64"
+        registration:
+          type: "boolean"
+          description: "Indicates if this is a client-related registration."
+        payment:
+          type: "boolean"
+          description: "Indicates if this PresenceLog is considered for payrolling. Only if both payment and payrollingActivity are true, the presence log is actually considered for payrolling."
+        fixedRateCompensation:
+          type: "boolean"
+          description: "Indicates if this PresenceLog is compensated with a fixed rate. If true, it is not displayed as work time."
+        payrollingActivity:
+          type: "boolean"
+          description: "Indicates if the Activity or Activities attached to this presence log are considered for payrolling. This property is read-only. Only if both payment and payrollingActivity are true, the presence log is actually considered for payrolling."
+        removed:
+          type: "boolean"
+          description: "Indicates if this PresenceLog is removed."
+        verified:
+          type: "boolean"
+          description: "Indicates if this PresenceLog is verified."
+        dossierReportUuid:
+          type: "string"
+          description: "UUID of the related Dossier report."
+        hasRealTime:
+          type: "boolean"
+          description: "Indicates if this PresenceLog represents a real period with a start and end, or simply a duration (e.g. 6 hours). If this is set to true, the duration field should be ignored, if it is false the duration field should have a correct value."
+        calculatedWorktimeAmount:
+          type: "integer"
+          description: "This field contains the actual work time. This can be different if the registration is an availability shift (bereikbaarheidsdienst)\nfor example. Or if the registration is part of a group appointment. Thus, the full time is not should be split over several\nregistrations."
+          format: "int64"
+        presenceLogLocation:
+          $ref: "#/components/schemas/PresenceLogLocation"
+        products:
+          uniqueItems: true
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PresenceLogProduct"
+          nullable: false
+          xml:
+            wrapped: true
+        ortHours:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PresenceLogORT"
+          xml:
+            wrapped: true
+        presenceLogPermission:
+          $ref: "#/components/schemas/PresenceLogPermission"
+        uuid:
+          type: "string"
+          description: "This field contains the uuid of a registration to all related presencelogs. An example usage could be a group appointment. All presencelogs from a group appointment will have the same uuid."
+      description: "PresenceLog model (no description)"
+      nullable: true
+      example:
+        id: 1337
+        activityObjectId: 999
+        duration: 100
+        reason: "Moves import"
+        action: "create"
+        externalId: "1"
+        sourceType: "6"
+        clientObjectId: 12344
+        employeeObjectId: 557
+        careOrderObjectId: 123
+        date: "2012-08-02T11:48:46.836+02:00"
+        startDate: "2012-08-02T11:48:46.836+02:00"
+        endDate: "2012-08-02T11:48:46.836+02:00"
+        clusterObjectId: 1
+        registration: false
+        payment: true
+        fixedRateCompensation: true
+        payrollingActivity: true
+        removed: true
+        verified: false
+        dossierReportUuid: "12345234900234"
+        hasRealTime: false
+        calculatedWorktimeAmount: 60
+        presenceLogLocation:
+          id: 1
+          expenseTypeObjectId: 1
+          zipcode: "1234OK"
+          homenumber: 2
+          homenumberExtension: "a"
+          latitude: 52.22
+          longitude: 4.53
+        products: []
+        ortHours: []
+        presenceLogPermission:
+          add_before: true
+          add_after: true
+          modify: true
+          remove: true
+        uuid: "48b99408-f6e0-11ec-b939-0242ac120002"
+      xml:
+        name: "presenceLog"
+    PresenceLogAction:
+      type: "string"
+      oneOf:
+        - title: "CREATE"
+          enum:
+            - "create"
+        - title: "UPDATE"
+          enum:
+            - "update"
+        - title: "DELETE"
+          enum:
+            - "delete"
+      description: "PresenceLogAction model (no description)"
+      nullable: true
+      example: "create"
+    PresenceLogLocation:
+      title: "PresenceLogLocation"
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+          x-cupido-id: true
+        expenseTypeObjectId:
+          type: "integer"
+          format: "int64"
+          nullable: true
+        zipcode:
+          type: "string"
+          description: "Please use #position instead"
+          x-deprecated: true
+        homenumber:
+          type: "integer"
+          description: "Please use #position instead"
+          format: "int32"
+          x-deprecated: true
+        homenumberExtension:
+          type: "string"
+          description: "Please use #position instead"
+          x-deprecated: true
+        latitude:
+          type: "number"
+          description: "Please use #position instead"
+          format: "double"
+          x-deprecated: true
+        longitude:
+          type: "number"
+          description: "Please use #position instead"
+          format: "double"
+          x-deprecated: true
+        position:
+          $ref: "#/components/schemas/registration.Position"
+      description: "PresenceLogLocation model (no description)"
+      nullable: true
+      example:
+        id: 1
+        expenseTypeObjectId: 1
+        zipcode: "2602AA"
+        homenumber: 13
+        homenumberExtension: "a"
+        latitude: 52.03
+        longitude: 52.37
+        position:
+          city: "Amsterdam"
+          homeNumber: 20
+          homeNumberExtension: "b"
+          street: "Prinsengracht"
+          zipCode: "1502AA"
+          country: "NL"
+          longitude: 32.37
+          latitude: 12.13
+      xml:
+        name: "presenceLogLocation"
+    registration.Position:
+      title: "Position"
+      type: "object"
+      properties:
+        city:
+          type: "string"
+          description: "The city where this position is part of. Can be <code>null</code>."
+          nullable: true
+        homeNumber:
+          type: "integer"
+          description: "The home number of the position. Can be <code>null</code>."
+          format: "int32"
+          nullable: true
+        homeNumberExtension:
+          type: "string"
+          description: "The possible extension the #homeNumber. Can be <code>null</code>."
+          nullable: true
+        street:
+          type: "string"
+          description: "The position's street name. Can be <code>null</code>"
+          nullable: true
+        zipCode:
+          type: "string"
+          description: "Zipcode part of the position. Can be <code>null</code>"
+          nullable: true
+        country:
+          type: "string"
+          description: "The two-letter country code. Examples are 'NL' and 'BE'."
+        longitude:
+          type: "number"
+          description: "Longitude part of the position."
+          format: "double"
+          nullable: true
+        latitude:
+          type: "number"
+          description: "Latitude part of the position."
+          format: "double"
+          nullable: true
+        usedGoogleAddress:
+          type: "string"
+      description: "A Position denotes a physical location on a map. This position can either consist of address information, a\nlongitude/latitude pair or both. Not all fields are guaranteed to be present."
+      example:
+        city: "Enschede"
+        homeNumber: 5
+        homeNumberExtension: ""
+        street: "Bomenlaan"
+        zipCode: "6521YH"
+        country: "NL"
+        longitude: 52.665171
+        latitude: 5.215021
+        usedGoogleAddress: "Bovenlaan 5, 6521YH Enschede, Netherlands"
+      xml:
+        name: "position"
+    PresenceLogORT:
+      type: "object"
+      properties:
+        start:
+          type: "string"
+          format: "date-time"
+        end:
+          type: "string"
+          format: "date-time"
+        percentage:
+          type: "integer"
+          description: "use 'percentage_decimal' instead"
+          format: "int32"
+          x-deprecated: true
+        percentageDecimal:
+          type: "number"
+          format: "double"
+        description:
+          type: "string"
+      description: "PresenceLogORT model (no description)"
+      example:
+        start: "2016-06-02T00:00:00.000+02:00"
+        end: "2016-06-02T00:00:00.000+02:00"
+        percentage: 0
+        percentageDecimal: 0.5
+        description: "Dummy"
+      xml:
+        name: "ortHour"
+    PresenceLogPermission:
+      type: "object"
+      properties:
+        add_before:
+          type: "boolean"
+          default: false
+        add_after:
+          type: "boolean"
+          default: false
+        modify:
+          type: "boolean"
+          default: false
+        remove:
+          type: "boolean"
+          default: false
+      description: "PresenceLogPermission model (no description)"
+      example:
+        add_before: true
+        add_after: true
+        modify: true
+        remove: true
+      xml:
+        name: "presenceLogPermission"
+    PresenceLogProduct:
+      title: "PresenceLogProduct"
+      type: "object"
+      properties:
+        activityObjectId:
+          type: "integer"
+          format: "int64"
+          x-cupido-id: true
+        duration:
+          type: "integer"
+          format: "int64"
+          nullable: true
+        quantity:
+          type: "integer"
+          format: "int64"
+        activityDirectOrIndirect:
+          type: "string"
+          description: "Valid values for this field are: \"direct\", \"indirect\", \"indirect_client\", \"indirect_client_travel\""
+        description:
+          type: "string"
+      description: "Product stored within {@link PresenceLog}."
+      example:
+        activityObjectId: 999
+        duration: 100
+        quantity: 1
+        activityDirectOrIndirect: "direct"
+        description: "description"
+      xml:
+        name: "product"

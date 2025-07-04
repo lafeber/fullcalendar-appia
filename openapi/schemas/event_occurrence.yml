@@ -1,0 +1,214 @@
+components:
+  schemas:
+    EventOccurrence:
+      title: EventOccurrence
+      type: object
+      example:
+        agendaClientInvitations:
+          - accepted: true
+            care_order_id: 2
+            client_id: 1
+            hour_type_id: 52
+        agendaInvitations:
+          - accepted: true
+            employee_id: 4
+          - accepted: true
+            employee_id: 5
+          - accepted: true
+            team_id: 42
+          - accepted: true
+            location_id: 12
+        clientPresent: true
+        comment: no comment
+        creatorObjectId: 42
+        customLocation: Gemeentehuis
+        cycleInterval: 1
+        duration: 1600
+        endTime: '08:20:00.000'
+        friday: false
+        groupUuid: bbca58ed-0138-4aec-87c6-5d391e98161c
+        hourTypeId: 42
+        id: 07e550c3
+        labels: []
+        monday: true
+        name: fysio
+        occurrenceDate: '2012-08-02'
+        recurrenceType: single
+        registered: false
+        registrationComplete: false
+        saturday: true
+        startTime: '08:10:00.000'
+        sunday: false
+        thursday: true
+        timelineId: 12
+        tuesday: false
+        uuid: abca58ed-0138-4aec-87c6-5d391e98161b
+        validFrom: '2012-08-02'
+        validTo: '2015-08-02'
+        wednesday: true
+        private: false
+      properties:
+        id:
+          type: string
+          description: Identifier of the Occurrence
+        occurrenceDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date on which this occurrence occurs based on the recurrence rule
+        uuid:
+          type: string
+          format: uuid
+          nullable: true
+          description: |-
+            External reference for Series to which this Occurrence belongs
+
+            External parties can use this for their own bookkeeping.
+            Is generated if not provided. If provided, it must be unique, will
+            result in 422 otherwise. Every change at one point in a Series, results
+            in a new Series for which the `uuid` must be unique.
+        timelineId:
+          type: integer
+          format: int64
+          nullable: true
+          description: |-
+            Identifier of the Series
+
+            Exceptions to the series have the same timelineId as the Series
+        name:
+          type: string
+          nullable: true
+          description: 'Short summary of the event, like a subject or title'
+        comment:
+          type: string
+          example: ''
+          nullable: true
+          description: 'Longer description of the event, like notes'
+        validFrom:
+          type: string
+          format: date
+          description: Start date of the Series
+          nullable: true
+        validTo:
+          type: string
+          format: date
+          nullable: true
+          description: |-
+            Recurrence end date
+
+             If recurring, the event is recurring up to this date (exclusive)
+        startTime:
+          type: string
+          format: time
+          description: Start time of this occurrence
+          nullable: true
+        endTime:
+          type: string
+          format: time
+          description: End time of this occurrence
+          nullable: true
+        duration:
+          type: integer
+          format: int64
+          nullable: true
+          description: Duration in seconds. Read-only.
+        recurrenceType:
+          $ref: './recurrence_type.yml#/components/schemas/RecurrenceType'
+        cycleInterval:
+          type: integer
+          default: 1
+          example: 1
+          nullable: true
+          description: |-
+            Interval length of the series
+
+            For a recurrenceType of `monthly`, an interval of `2`
+            means this event happens every 2 months.
+          format: int32
+        customLocation:
+          type: string
+          nullable: true
+        registered:
+          type: boolean
+          description: Indication if any employee has registered the appointment
+          nullable: true
+        creatorObjectId:
+          type: integer
+          format: int64
+          nullable: true
+        monday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on monday
+        tuesday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on tuesday
+        wednesday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on wednesday
+        thursday:
+          description: Weekly event occurs on thursday
+          default: false
+          type: boolean
+          nullable: true
+        friday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on friday
+        saturday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on saturday
+        sunday:
+          type: boolean
+          default: false
+          nullable: true
+          description: Weekly event occurs on sunday
+        agendaInvitations:
+          type: array
+          description: |-
+            Clients, locations, teams or employees invited to this occurrence
+             Does not support clients using extended workflow. For that use case, see AgendaClientInvitation
+          items:
+            $ref: './invitation.yml#/components/schemas/Invitation'
+        agendaClientInvitations:
+          type: array
+          description: |-
+            Clients invited to this occurrence. Supports extended workflow
+             Extended workflow is a flag that, when enabled, causes invitations to have hour type, surcharge and trajectory
+
+             When using this to add a client to the occurrence, the client's hour type, surcharge and trajectory will be added
+             to the client invitation
+          items:
+            $ref: './client_invitation.yml#/components/schemas/ClientInvitation'
+        hourTypeId:
+          type: integer
+          format: int64
+          nullable: true
+        labels:
+          type: array
+          items:
+            $ref: './label.yml#/components/schemas/Label'
+          nullable: true
+        clientPresent:
+          description: Whether the client is expected in this event
+          type: boolean
+          nullable: true
+        registrationComplete:
+          description: Indication that all employees have registered the appointment
+          type: boolean
+          nullable: true
+        groupUuid:
+          type: string
+          nullable: true
+        private:
+          type: boolean
+          nullable: true
+          description: Whether this event is private

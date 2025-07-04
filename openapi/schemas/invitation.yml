@@ -1,0 +1,31 @@
+components:
+  schemas:
+    Invitation:
+      title: Invitation
+      type: object
+      example:
+        accepted: true
+        clientId: 1
+        employeeId: 2
+        locationId: 4
+        teamId: 3
+      properties:
+        accepted:
+          type: boolean
+          nullable: true
+        clientId:
+          type: integer
+          format: int64
+          nullable: true
+        employeeId:
+          type: integer
+          format: int64
+          nullable: true
+        teamId:
+          type: integer
+          format: int64
+          nullable: true
+        locationId:
+          type: integer
+          format: int64
+          nullable: true

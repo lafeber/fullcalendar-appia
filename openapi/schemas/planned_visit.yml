@@ -1,0 +1,173 @@
+components:
+  schemas:
+    PlannedVisit:
+      title: PlannedVisit
+      example:
+        calculatedStart: "2013-12-06T12:51:00.000+01:00"
+        clientBirthDate: "1932-05-23"
+        clientCode: "05645"
+        clientGender: F
+        clientId: 14947
+        clientIsDummy: false
+        clientName: A Radstaak - de Doring
+        clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+        date: "2013-12-06"
+        employeeCode: code
+        employeeGender: m
+        employeeId: 1
+        employeeIsDummy: true
+        employeeName: employee
+        employeeUuid: "1234567890"
+        firstAfterMidnight: false
+        gapTimeBefore: 0
+        locationAuthorizations:
+          - locationId: 12
+        notes: []
+        plancards: []
+        shiftCode: MDT
+        shiftName: Middag De Terp PV
+        shiftTimelineId: 6
+        teamBlockplanned: false
+        teamCode: "1410"
+        teamId: 328
+        teamName: V&V De Terp
+        teamUuid: 8978eec1-55c8-4c2f-bf63-4d9ae599263c
+        unitId: 12
+        totalDuration: -1386330660
+        travelTimeBefore: 3600
+      properties:
+        authorizesForLocationId:
+          deprecated: true
+          description: |-
+            Use locationAuthorizations instead.
+            ~~Being planned as Employee for the Team or Shift
+            implies authorization for this Location.~~
+          format: int64
+          type: integer
+          nullable: true
+        calculatedStart:
+          format: date-time
+          type: string
+          nullable: true
+        clientBirthDate:
+          format: date
+          type: string
+          nullable: true
+        clientCode:
+          type: string
+          nullable: true
+        clientGender:
+          type: string
+          nullable: true
+        clientId:
+          format: int64
+          type: integer
+          nullable: true
+        clientIsDummy:
+          type: boolean
+          nullable: true
+        clientName:
+          type: string
+          nullable: true
+        clientUuid:
+          type: string
+          nullable: true
+        date:
+          format: date
+          type: string
+          nullable: true
+        employeeCode:
+          type: string
+          nullable: true
+        employeeGender:
+          type: string
+          nullable: true
+        employeeId:
+          format: int64
+          type: integer
+          nullable: true
+        employeeIsDummy:
+          type: boolean
+          nullable: true
+        employeeName:
+          type: string
+          nullable: true
+        employeeUuid:
+          type: string
+          nullable: true
+        firstAfterMidnight:
+          type: boolean
+          nullable: true
+          description: |-
+            This visit is the first after midnight, and a visual indication
+            should be shown to the user (e.g. the new date or a 🌙 icon).
+        gapTimeBefore:
+          format: int32
+          type: integer
+          nullable: true
+        locationAuthorizations:
+          description: |-
+            Being assigned as Employee for the Team or Shift
+            implies authorization for these Locations.
+          items:
+            "$ref": "./location_authorization.yml#/components/schemas/LocationAuthorization"
+          type: array
+          nullable: true
+        notes:
+          items:
+            type: string
+          type: array
+          nullable: true
+        plancards:
+          items:
+            "$ref": "./plancard.yml#/components/schemas/Plancard"
+          type: array
+          nullable: true
+        plannedAddress:
+          "$ref": "./planned_address.yml#/components/schemas/PlannedAddress"
+        shiftCode:
+          type: string
+          nullable: true
+        shiftName:
+          type: string
+          nullable: true
+        shiftTimelineId:
+          format: int64
+          type: integer
+          nullable: true
+        teamBlockplanned:
+          description: |-
+            Indicates if the Team uses the blockplanscreen (clients planned to
+            employees directly) instead of the route-based planscreen.
+          type: boolean
+          nullable: true
+        teamCode:
+          type: string
+          nullable: true
+        teamId:
+          description: |-
+            Linked to the Ons Administratie team, can be null if the Moves planning team (unit) is a sub-team from the OA team
+          format: int64
+          type: integer
+          nullable: true
+        teamName:
+          type: string
+          nullable: true
+        unitId:
+          description: |-
+            Linked to the Moves planning team (unit)
+          format: int64
+          type: integer
+          nullable: true
+        teamUuid:
+          type: string
+          nullable: true
+        totalDuration:
+          format: int32
+          type: integer
+          nullable: true
+        travelTimeBefore:
+          format: int32
+          type: integer
+          nullable: true
+      type: object

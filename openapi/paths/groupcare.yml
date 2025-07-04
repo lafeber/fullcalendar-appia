@@ -1,0 +1,43 @@
+paths:
+  'index_by_client_id':
+    get:
+      operationId: occurrencesByClient
+      description: "Occurrences by client"
+      deprecated: true
+      parameters:
+        - description: id
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - in: query
+          name: end_date
+          schema:
+            format: date
+            type: string
+        - in: query
+          name: start_date
+          schema:
+            format: date
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/occurrence_list.yml#/components/schemas/OccurrenceList'
+            application/xml:
+              schema:
+                $ref: '../schemas/occurrence_list.yml#/components/schemas/OccurrenceList'
+        '400':
+          description: Missing/invalid start date
+        '404':
+          description: Invalid client
+      summary: |
+        WARNING: DEPRECATED. API is part of functionality that is no longer used by any customer. Does not yield
+        occurrences from Groupcare.
+
+        Return the groupcare agenda occurrences of a Client corresponding to the given id.

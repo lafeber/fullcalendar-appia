@@ -1,0 +1,52 @@
+paths:
+  'clients_planned_visits':
+    get:
+      tags:
+        - PlannedVisit
+      summary: Return the planned visits of a Client within a specified period.
+      description: Return the planned visits of a Client within a specified period.
+      operationId: plannedVisitsByClient
+      parameters:
+        - description: The id of the Client whose PlannedVisits you want to retrieve.
+          in: path
+          name: id
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - description: The start date of the period.
+          in: query
+          name: from
+          required: true
+          schema:
+            format: date
+            type: string
+        - description: |-
+            Comma-separated list of keywords to indicate which
+            features/fields/subresources you'd like to have included
+            in the response.
+            No keywords supported at the moment. Parameter is defined
+            for symmetry with PlannedVisitAPI.byEmployeeId.
+          in: query
+          name: include
+          schema:
+            type: string
+        - description: The end date of the period (exclusive).
+          in: query
+          name: to
+          required: true
+          schema:
+            format: date
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "../schemas/planned_visit_list.yml#/components/schemas/PlannedVisitList"
+            application/xml:
+              schema:
+                "$ref": "../schemas/planned_visit_list.yml#/components/schemas/PlannedVisitList"
+        "400":
+          description: Parsing errors

@@ -1,0 +1,37 @@
+components:
+  schemas:
+    PlannedAddress:
+      title: PlannedAddress
+      example:
+        city: Groenlo
+        latitude: 52.038398
+        longitude: 6.624163
+        number: "31"
+        numberPostfix: a
+        street: Parallelweg
+        zipcode: 7141DC
+      properties:
+        city:
+          type: string
+          nullable: true
+        latitude:
+          format: double
+          type: number
+          nullable: true
+        longitude:
+          format: double
+          type: number
+          nullable: true
+        number:
+          type: string
+          nullable: true
+        numberPostfix:
+          type: string
+          nullable: true
+        street:
+          type: string
+          nullable: true
+        zipcode:
+          type: string
+          nullable: true
+      type: object

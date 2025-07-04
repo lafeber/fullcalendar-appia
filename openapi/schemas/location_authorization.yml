@@ -1,0 +1,15 @@
+components:
+  schemas:
+    LocationAuthorization:
+      title: LocationAuthorization
+      example:
+        locationId: 1
+      properties:
+        locationId:
+          description: |-
+            The location this LocationAuthorization grants access to.
+             Reference to Cupido::Location.
+          format: int64
+          type: integer
+          nullable: true
+      type: object

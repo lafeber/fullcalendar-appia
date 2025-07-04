@@ -1,0 +1,15 @@
+components:
+  schemas:
+    RecurrenceType:
+      title: RecurrenceType
+      type: string
+      description: Frequency of the recurrence
+      nullable: true
+      default: single
+      enum:
+        - single
+        - daily
+        - weekly
+        - monthly_on_day
+        - monthly_on_week
+        - yearly

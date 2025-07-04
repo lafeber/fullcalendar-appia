@@ -1,0 +1,125 @@
+components:
+  schemas:
+    Plancard:
+      title: Plancard
+      example:
+        cycleBase: "2021-06-24"
+        cycleInterval: 7
+        cycleOffset: 3
+        dayPart: 1
+        deleted: false
+        duration: 600
+        exportable: true
+        hourTypeCode: "31"
+        hourTypeId: 25
+        hourTypeName: PV eten en drinken
+        incidentallyChanged: false
+        instanceOfId: 16
+        instanceOfType: PatternRule
+        kind: arrangement
+        note: Les naïfs ægithales hâtifs pondant à Noël où il gèle sont sûrs d'être
+          déçus en voyant leurs drôles d'œufs abîmés.
+        originalCycleOffset: 5
+        promisedStart: "2010-03-15T00:00:00.000+01:00"
+      properties:
+        cycleBase:
+          description: The date from which the recurrence pattern is calculated (usually
+            a Sunday)
+          format: date
+          type: string
+          nullable: true
+        cycleInterval:
+          description: The plancard occurs every N-days
+          format: int32
+          type: integer
+          nullable: true
+        cycleOffset:
+          description: The number of days from cycleBase the plancard occurs, effectively
+            indicating a day of the week. Usually [0-6], 0 is Sunday
+          format: int32
+          type: integer
+          nullable: true
+        dayPart:
+          description: |-
+            Daypart on which this Plancard is defined in the care arrangement.
+
+             <pre>
+             1 - Morning
+             2 - Afternoon
+             3 - Evening
+             0 - Night (Night-plancards generally occur after Evening-plancards for the same date)
+             null - Incidentally added Plancard that is not linked to a care arrangement.
+             </pre>
+          format: int32
+          type: integer
+          nullable: true
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+        deleted:
+          description: Indicates if this Planccard has been incidentally deleted.
+          type: boolean
+          nullable: true
+        duration:
+          description: Duration of this Plancard in seconds.
+          format: int32
+          type: integer
+          nullable: true
+        exportable:
+          description: Indicates if this Plancard will be exported. Only available
+            through specific APIs.
+          type: boolean
+          nullable: true
+        hourTypeCode:
+          type: string
+          nullable: true
+        hourTypeId:
+          format: int64
+          type: integer
+          nullable: true
+        hourTypeName:
+          type: string
+          nullable: true
+        incidentallyChanged:
+          description: The information on this plancard is different from its regular/structural
+            state.
+          type: boolean
+          nullable: true
+        instanceOfId:
+          description: Reference to 'PatternRule'-record in case `instanceOfType`
+            is `PatternRule`
+          format: int32
+          type: integer
+          nullable: true
+        instanceOfType:
+          description: Either 'PatternRule' (a regular plancard created from the care
+            arrangement) or 'EventRule' (a plancard that was incidentally added from
+            the planscreen)
+          type: string
+          nullable: true
+          enum:
+            - PatternRule
+            - EventRule
+        kind:
+          description: Unused
+          type: string
+          nullable: true
+        note:
+          description: The note added to this Plancard in the planscreen.
+          type: string
+          nullable: true
+        originalCycleOffset:
+          description: When the plancard was incidentally moved, this attribute holds
+            the original value of cycleOffset.
+          format: int32
+          type: integer
+          nullable: true
+        promisedStart:
+          description: The entered start time of this Plancard. This time is an intent,
+            not a guarantee.
+          format: date-time
+          type: string
+          nullable: true
+      type: object

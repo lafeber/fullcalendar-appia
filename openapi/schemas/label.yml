@@ -1,0 +1,14 @@
+components:
+  schemas:
+    Label:
+      title: Label
+      type: object
+      example:
+        id: 1
+        name: Telefonisch
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string

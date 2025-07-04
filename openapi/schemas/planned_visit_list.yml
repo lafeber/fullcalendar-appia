@@ -1,0 +1,314 @@
+components:
+  schemas:
+    PlannedVisitList:
+      title: PlannedVisitList
+      example:
+        plannedVisits:
+          - calculatedStart: "2013-12-06T08:00:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            employeeCode: 9197-02
+            employeeGender: M
+            employeeId: 9197
+            employeeIsDummy: false
+            employeeName: Gerrie Nijenhuis
+            employeeUuid: 91f118c2-cd22-4105-a5ee-a05758288b68
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes:
+              - sleutelcode 1234
+              - "contactpers: kleindochter 06123456789"
+            plancards:
+              - duration: 14400
+                hourTypeCode: "0"
+                hourTypeId: 39
+                hourTypeName: HH2 hulp bij huishouden
+                kind: arrangement
+                promisedStart: "2013-12-05T08:00:00.000+01:00"
+                status: planned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            teamBlockplanned: false
+            teamCode: "121"
+            teamId: 301
+            teamName: HV OOST
+            teamUuid: 8978eec1-55c8-4c2f-bf63-4d9ae599263c
+            totalDuration: 14400
+            travelTimeBefore: 0
+          - calculatedStart: "2013-12-06T08:37:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            employeeCode: 8996-02
+            employeeGender: M
+            employeeId: 8996
+            employeeIsDummy: false
+            employeeName: Dorien Arentsen - Arentsen
+            employeeUuid: ae3a0b12-88a1-4fde-8ce0-30f5f7b83b3b
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 600
+                hourTypeCode: "41"
+                hourTypeId: 29
+                hourTypeName: VP overige handelingen
+                kind: arrangement
+                status: planned
+              - duration: 600
+                hourTypeCode: "41"
+                hourTypeId: 30
+                hourTypeName: VP controle lichaamsfuncties
+                kind: arrangement
+                status: canceled
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: O2VP
+            shiftName: Ochtend 2 VP Oost
+            shiftTimelineId: 33
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: -1386315420
+            travelTimeBefore: 0
+          - clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 600
+                hourTypeCode: "31"
+                hourTypeId: 33
+                hourTypeName: PV medicijnen
+                kind: arrangement
+                status: unplanned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            totalDuration: 0
+            travelTimeBefore: 0
+          - calculatedStart: "2013-12-06T12:03:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 900
+                hourTypeCode: "31"
+                hourTypeId: 24
+                hourTypeName: PV hulp toilet/stoma
+                kind: arrangement
+                status: planned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: MDT
+            shiftName: Middag De Terp PV
+            shiftTimelineId: 6
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: 900
+            travelTimeBefore: 3600
+          - calculatedStart: "2013-12-06T12:51:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 600
+                hourTypeCode: "31"
+                hourTypeId: 25
+                hourTypeName: PV eten en drinken
+                kind: arrangement
+                note: Les naïfs ægithales hâtifs pondant à Noël où il gèle sont sûrs d'être
+                  déçus en voyant leurs drôles d'œufs abîmés.
+                status: planned
+              - duration: 1500
+                hourTypeCode: "31"
+                hourTypeId: 35252
+                hourTypeName: PV-wassen/douchen
+                kind: arrangement
+                status: planned
+              - duration: 1200
+                hourTypeCode: "41"
+                hourTypeId: 29
+                hourTypeName: VP overige handelingen
+                kind: arrangement
+                status: canceled
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: MDT
+            shiftName: Middag De Terp PV
+            shiftTimelineId: 6
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: -1386330660
+            travelTimeBefore: 3600
+          - calculatedStart: "2013-12-06T16:30:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            employeeCode: 36223-02
+            employeeGender: M
+            employeeId: 36223
+            employeeIsDummy: false
+            employeeName: Anita Abbink - Overkamp
+            employeeUuid: e2bbd4c3-8b6c-4823-b9dc-b4ab1e478bfc
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 900
+                hourTypeCode: "31"
+                hourTypeId: 24
+                hourTypeName: PV hulp toilet/stoma
+                kind: arrangement
+                status: planned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: AV
+            shiftName: Avond VP
+            shiftTimelineId: 34
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: 900
+            travelTimeBefore: 0
+          - calculatedStart: "2013-12-06T18:45:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 900
+                hourTypeCode: "31"
+                hourTypeId: 25
+                hourTypeName: PV eten en drinken
+                kind: arrangement
+                status: planned
+              - duration: 900
+                hourTypeCode: "31"
+                hourTypeId: 24
+                hourTypeName: PV hulp toilet/stoma
+                kind: arrangement
+                status: planned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: A3
+            shiftName: Avond 3 PV
+            shiftTimelineId: 9
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: 1800
+            travelTimeBefore: 0
+          - calculatedStart: "2013-12-06T21:19:00.000+01:00"
+            clientBirthDate: "1932-05-23"
+            clientCode: "05645"
+            clientGender: F
+            clientId: 14947
+            clientIsDummy: false
+            clientName: A Radstaak - de Doring
+            clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
+            firstAfterMidnight: false
+            gapTimeBefore: 0
+            notes: []
+            plancards:
+              - duration: 600
+                hourTypeCode: "31"
+                hourTypeId: 24
+                hourTypeName: PV hulp toilet/stoma
+                kind: arrangement
+                status: planned
+            plannedAddress:
+              latitude: 52.038398
+              longitude: 6.624163
+              number: "31"
+              zipcode: 7141DC
+            shiftCode: A3
+            shiftName: Avond 3 PV
+            shiftTimelineId: 9
+            teamBlockplanned: false
+            teamCode: "1410"
+            teamId: 328
+            teamName: V&V De Terp
+            teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
+            totalDuration: 600
+            travelTimeBefore: 3600
+      properties:
+        plannedVisits:
+          items:
+            "$ref": "./planned_visit.yml#/components/schemas/PlannedVisit"
+          type: array
+          nullable: true
+      type: object
