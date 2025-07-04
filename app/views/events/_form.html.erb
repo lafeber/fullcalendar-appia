@@ -1,0 +1,86 @@
+<%= form_with(model: event, class: "contents") do |form| %>
+  <% if event.errors.any? %>
+    <div role="alert" id="error_explanation" class="alert alert-error">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title, class: "floating-label" do %>
+      <span>Title</span>
+      <%= form.text_field :title, autofocus: true, class: "input" %>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :start, class: "floating-label" do %>
+      <span>Start</span>
+      <%= form.datetime_field :start, class: "input" %>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :end, class: "floating-label" do %>
+      <span>End</span>
+      <%= form.datetime_field :end, class: "input" %>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :all_day, class: "fieldset-label" do %>
+      <%= form.check_box :all_day, class: "toggle" %>
+      <p class="text-base-content text-sm">All day</p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :color, class: "floating-label" do %>
+      <span>Color</span>
+      <%= form.color_field :color, class: "input" %>
+    <% end %>
+  </div>
+
+  <div data-controller="toggle">
+    <div class="my-5">
+      <%= form.label :every, class: "floating-label" do %>
+        <span>Repeat</span>
+        <%= form.select :every, %w[once day week month year], {}, class: "input" %>
+      <% end %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :advanced, class: "fieldset-label" do %>
+        <%= check_box_tag :advanced, class: "toggle", data: { action: "click->toggle#toggle" } %>
+        <p class="text-base-content text-sm">Advanced</p>
+      <% end %>
+    </div>
+
+    <div class="<%= "hidden" if form.object.interval.blank? %>" data-toggle-target="toggleable">
+      <div class="my-5">
+        <%= form.label :interval, class: "floating-label" do %>
+          <span>Interval</span>
+          <%= form.number_field :interval, class: "input" %>
+        <% end %>
+      </div>
+
+      <div class="my-5">
+        <%= form.label :until, class: "floating-label" do %>
+          <span>Until</span>
+          <%= form.date_field :until, class: "input" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="inline">
+    <%= form.hidden_field :parent_id %>
+    <%= form.hidden_field :event_until_id %>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

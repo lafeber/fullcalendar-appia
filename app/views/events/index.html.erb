@@ -1,0 +1,13 @@
+<div class="flex justify-between items-center">
+  <h1 class="text-2xl">Calendar</h1>
+  <%= link_to 'New event', new_event_path(params: { event: { start: DateTime.current, end: 1.hour.from_now }}), 
+              data: { turbo_frame: 'popup' }, class: "btn btn-primary" %>
+</div>
+
+<hr class="mt-2 mb-2">
+
+<div data-controller="calendar">
+  <div data-calendar-target="window"></div>
+
+  <turbo-frame id="popup" data-calendar-target="popup" data-action="turbo:submit-end->calendar#refresh"></turbo-frame>
+</div>
