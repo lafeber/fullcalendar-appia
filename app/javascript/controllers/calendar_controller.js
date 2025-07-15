@@ -18,6 +18,11 @@ export default class extends Controller {
       editable: true,
       timeZone: "UTF",
       events: "/events.json",
+      eventSources: [
+        "/moves_events.json",
+        "/agenda_events.json",
+        "/presence_log_events.json"
+      ],
       initialView: "timeGridWeek",
       headerToolbar: {
         left: "prev,next",
