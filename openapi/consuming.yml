@@ -1,5 +1,7 @@
 openapi: 3.0.1
-
+servers:
+  - url: "http://localhost:9000"
+    description: Calendar local development
 info:
   title: Fullcalendar
   description: A test application combining FullCalendar and various Nedap occurrences.
@@ -9,17 +11,14 @@ info:
     url: 'https://github.com/nedap/fullcalendar-appia'
   license:
     name: UNLICENSED
-servers:
-  - url: 'http://fullcalendar-appia.test:3625'
-    description: Local development server
 x-appia-consume-from: https://www.nedap-ons.dev/appia-marketplace/gateway/server.json
 
 paths:
-  "/api/moves/planned_visits/by_client_id/{id}":
+  '/api/moves/planned_visits/by_client_id/{id}':
     $ref: "./paths/moves.yml#/paths/clients_planned_visits"
-  "/api/agenda/clients/{client_id}/agenda_occurrences":
+  '/api/agenda/clients/{client_id}/agenda_occurrences':
     $ref: "./paths/agenda.yml#/paths/index_by_location"
-  "/api/administration/clients/{client_id}/presence_logs":
+  '/api/administration/clients/{client_id}/presence_logs':
     $ref: './paths/presence_logs.yml#/paths/index_by_client_id'
-  "/api/groupcare/clients/{id}/occurrences":
+  '/api/groupcare/clients/{id}/occurrences':
     $ref: "./paths/groupcare.yml#/paths/index_by_client_id"
