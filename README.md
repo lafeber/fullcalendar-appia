@@ -1,12 +1,24 @@
-
 # Async remote events from the ONS suite
 
-We use a local openapi server in the Procfile to generate a server built from consuming.yml
+This is a demonstration repository. If you don't want to use docker for your remote
+resources, this is a nice and lightweight alternative.
+
+We use a local openapi server in the Procfile to generate a server built from your
+consuming appia.yml
 
 ![Screenshot](screenshot.png)
 
-The fullcalendar backend code is a bit hacky / vibe coded,
+NB: The fullcalendar backend controller code is a bit hacky / vibe coded,
 that's not the purpose of this repo.
+
+The appia wrappers are in the `app/concerns` folder and contain some logic to convert
+remote json to fullcalendar event json. It can be done in a nicer way but that's
+outside the scope of this project.
+
+Most of the remote info is in the `/openapi` folder. I'm a bit on the fence on creating
+separate files for each schema, so in presence logs they're all in one file.
+
+The groupcare API is deprecated, hence it's not used.
 
 ## Why this and not amoretto?
 
@@ -24,6 +36,6 @@ to check your remote server!
 
 ## TODO
 
-* Dates in schemas are currently static
+* Dates in schemas are currently static!
 * Nice mocks for spec / test
-* Add urls for staging / production
+* Add urls for staging / production in consuming.yml

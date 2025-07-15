@@ -4,8 +4,7 @@ require "faraday"
 
 module Appia
   class Client
-    # TODO get this from consuming.yml for staging / production
-    BASE_URL = "http://localhost:9000/api/"
+    BASE_URL = YAML.load_file(Rails.root.join("openapi", "consuming.yml"))["servers"].find { |s| s["description"] == Rails.env }["url"]
 
     def self.client
       @client ||= begin

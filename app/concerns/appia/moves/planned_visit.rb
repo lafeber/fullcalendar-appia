@@ -12,7 +12,7 @@ class Appia::Moves::PlannedVisit < Appia::Client
       title: planned_visit[:plancards].map { |h| h[:hourTypeName] }.join(", "),
       start: planned_visit[:calculatedStart],
       end: planned_visit[:calculatedStart].to_datetime + planned_visit[:totalDuration].seconds,
-      color: "#451209", # Default color, can be customized
+      color: "#1eda9", # Default color, can be customized
       all_day: false,
       editable: false
     }
