@@ -1,32 +1,29 @@
-# Fullcalendar backend with Rails 8, Hotwire and Tailwind
 
-A demonstration of what you can achieve with one scaffold, one small stimulus controller and two tiny [stimulus components](https://github.com/excid3/tailwindcss-stimulus-components), wrapped in view components.
+# Async remote events from the ONS suite
+
+We use a local openapi server in the Procfile to generate a server built from consuming.yml
 
 ![Screenshot](screenshot.png)
 
-# This repository will teach you:
+The fullcalendar backend code is a bit hacky / vibe coded,
+that's not the purpose of this repo.
 
-* Multiple ways to use turbo frames
-* Multiple ways to display viewcomponents
-* The presenter pattern
-* Effectively combining activerecord or-scopes
+## Why this and not amoretto?
 
-It's a showoff of how much you can achieve in Rails with very little code.
+* amoretto yml files are static copies, not in sync with openapi spec
+* appia bot keeps yml files up to date
+* you get errors when e.g. you call an endpoint without required parameters
+* no duplication
 
-# This repository won't cover:
+## Start
 
-* Security
+* `/bin/setup`
+* `/bin/dev`
+* Go to `http://localhost:3000` to view calendar or `http://localhost:9000/openapi.json`
+to check your remote server!
 
-Sorry for all the vibe coders out there ;-) There are easy to spot and easy to fix security glitches, but I'll leave it up to you to implement these.
+## TODO
 
-# To start:
-
-* /bin/setup
-* /bin/dev
-* Go to http://localhost:3000
-
-# TODO:
-
-* use daisy-ui for cleaner partials
-* implement custom recurring fields
-* proper title / button texts
+* Dates in schemas are currently static
+* Nice mocks for spec / test
+* Add urls for staging / production
