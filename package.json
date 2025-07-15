@@ -17,7 +17,7 @@
     "esbuild": "^0.14.38",
     "moment": "^2.29.3",
     "openapicmd": "^2.7.0",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.31",
     "tailwindcss": "^4.1.11",
     "tailwindcss-stimulus-components": "^6.1.3"
   },
