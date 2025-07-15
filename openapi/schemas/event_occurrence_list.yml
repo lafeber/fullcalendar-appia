@@ -5,16 +5,16 @@ components:
       type: object
       example:
         agendaOccurrences:
-          - comment: no comment
+          - comment: Greetings from Agenda
             cycleInterval: 1
-            endTime: '08:20:00.000'
+            endTime: '10:20:00.000'
             id: 07e550c3
             name: fysio
-            occurrenceDate: '2012-08-02'
+            occurrenceDate: '2025-07-15'
             recurrenceType: single
             startTime: '08:10:00.000'
             uuid: abca58ed-0138-4aec-87c6-5d391e98161b
-            validFrom: '2012-08-02'
+            validFrom: '2025-07-18'
       properties:
         agendaOccurrences:
           items:

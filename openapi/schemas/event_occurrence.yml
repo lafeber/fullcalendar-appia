@@ -32,7 +32,7 @@ components:
         labels: []
         monday: true
         name: fysio
-        occurrenceDate: '2012-08-02'
+        occurrenceDate: '2025-07-15'
         recurrenceType: single
         registered: false
         registrationComplete: false
@@ -43,8 +43,8 @@ components:
         timelineId: 12
         tuesday: false
         uuid: abca58ed-0138-4aec-87c6-5d391e98161b
-        validFrom: '2012-08-02'
-        validTo: '2015-08-02'
+        validFrom: '2025-07-15'
+        validTo: '2025-07-15'
         wednesday: true
         private: false
       properties:

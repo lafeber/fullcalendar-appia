@@ -4,7 +4,7 @@ components:
       title: PlannedVisitList
       example:
         plannedVisits:
-          - calculatedStart: "2013-12-06T08:00:00.000+01:00"
+          - calculatedStart: "2025-07-17T08:00:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -43,7 +43,7 @@ components:
             teamUuid: 8978eec1-55c8-4c2f-bf63-4d9ae599263c
             totalDuration: 14400
             travelTimeBefore: 0
-          - calculatedStart: "2013-12-06T08:37:00.000+01:00"
+          - calculatedStart: "2025-07-17T08:37:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -115,7 +115,7 @@ components:
             teamName: V&V De Terp
             totalDuration: 0
             travelTimeBefore: 0
-          - calculatedStart: "2013-12-06T12:03:00.000+01:00"
+          - calculatedStart: "2025-07-17T12:03:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -148,7 +148,7 @@ components:
             teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
             totalDuration: 900
             travelTimeBefore: 3600
-          - calculatedStart: "2013-12-06T12:51:00.000+01:00"
+          - calculatedStart: "2025-07-17T12:51:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -194,7 +194,7 @@ components:
             teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
             totalDuration: -1386330660
             travelTimeBefore: 3600
-          - calculatedStart: "2013-12-06T16:30:00.000+01:00"
+          - calculatedStart: "2025-07-17T16:30:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -233,7 +233,7 @@ components:
             teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
             totalDuration: 900
             travelTimeBefore: 0
-          - calculatedStart: "2013-12-06T18:45:00.000+01:00"
+          - calculatedStart: "2025-07-17T18:45:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F
@@ -272,7 +272,7 @@ components:
             teamUuid: ef538153-f686-4ef7-b5aa-f6f2d363d9f6
             totalDuration: 1800
             travelTimeBefore: 0
-          - calculatedStart: "2013-12-06T21:19:00.000+01:00"
+          - calculatedStart: "2025-07-17T21:19:00.000+01:00"
             clientBirthDate: "1932-05-23"
             clientCode: "05645"
             clientGender: F

@@ -22,9 +22,15 @@ components:
             clientObjectId: 12344
             employeeObjectId: 557
             careOrderObjectId: 123
-            startDate: "2012-08-02T11:48:46.000+02:00"
-            endDate: "2012-08-02T11:48:46.000+02:00"
+            startDate: "2025-07-15T11:48:46.000"
+            endDate: "2025-07-15T11:48:46.000"
             clusterObjectId: 1
+            products:
+              - activityObjectId: 999
+                duration: 100
+                quantity: 1
+                activityDirectOrIndirect: "direct"
+                description: "I'm a presence log"
       xml:
         name: "presenceLogs"
     PresenceLog:
@@ -150,9 +156,9 @@ components:
         clientObjectId: 12344
         employeeObjectId: 557
         careOrderObjectId: 123
-        date: "2012-08-02T11:48:46.836+02:00"
-        startDate: "2012-08-02T11:48:46.836+02:00"
-        endDate: "2012-08-02T11:48:46.836+02:00"
+        date: "2025-07-15T11:48:46.836+02:00"
+        startDate: "2025-07-15T11:48:46.000"
+        endDate: "2025-07-15T11:48:46.000"
         clusterObjectId: 1
         registration: false
         payment: true
@@ -171,7 +177,12 @@ components:
           homenumberExtension: "a"
           latitude: 52.22
           longitude: 4.53
-        products: []
+        products:
+          - activityObjectId: 999
+            duration: 100
+            quantity: 1
+            activityDirectOrIndirect: "direct"
+            description: "I'm a presence log"
         ortHours: []
         presenceLogPermission:
           add_before: true
@@ -384,6 +395,6 @@ components:
         duration: 100
         quantity: 1
         activityDirectOrIndirect: "direct"
-        description: "description"
+        description: "I'm a presence log"
       xml:
         name: "product"

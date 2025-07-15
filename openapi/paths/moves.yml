@@ -1,5 +1,5 @@
 paths:
-  'clients_planned_visits':
+  clients_planned_visits:
     get:
       tags:
         - PlannedVisit

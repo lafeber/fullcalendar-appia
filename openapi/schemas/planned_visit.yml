@@ -3,7 +3,7 @@ components:
     PlannedVisit:
       title: PlannedVisit
       example:
-        calculatedStart: "2013-12-06T12:51:00.000+01:00"
+        calculatedStart: "2025-07-17T12:51:00.000+01:00"
         clientBirthDate: "1932-05-23"
         clientCode: "05645"
         clientGender: F
@@ -11,7 +11,7 @@ components:
         clientIsDummy: false
         clientName: A Radstaak - de Doring
         clientUuid: 3c18790a-145a-4281-b5bd-0d7e0013ce5d
-        date: "2013-12-06"
+        date: "2025-07-17"
         employeeCode: code
         employeeGender: m
         employeeId: 1

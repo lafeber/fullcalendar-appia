@@ -1,5 +1,5 @@
 paths:
-  'index_by_client_id':
+  index_by_client_id:
     get:
       operationId: occurrencesByClient
       description: "Occurrences by client"
