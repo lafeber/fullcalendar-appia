@@ -11,6 +11,6 @@
   <ul>
     <li>Start: <%= @event.starts_at %></li>
     <li>End: <%= @event.ends_at %></li>
-    <li>Color: <%= @event.color %></li>
+    <li><div class="badge badge-outline" style="border-color:<%= @event.color %>; color:<%= @event.color %>">Color</div></li>
   </ul>
 <% end %>
