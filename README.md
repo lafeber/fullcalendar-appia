@@ -29,8 +29,8 @@ The groupcare API is deprecated, hence it's not used.
 
 ## Start
 
-* `/bin/setup`
-* `/bin/dev`
+* `./bin/setup`
+* `./bin/dev`
 * Go to `http://localhost:3000` to view calendar or `http://localhost:9000/openapi.json`
 to check your remote server!
 
